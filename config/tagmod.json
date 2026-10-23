@@ -1,0 +1,118 @@
+{
+  "mobChance": 0.5,
+  "doubleTraitChance": 0.2,
+  "bossChance": 0.1,
+  "equipmentChance": 0.2,
+  "equipmentDropChance": 0.005,
+  "largeMobChance": 0.08,
+  "largeMobMinScale": 1.6,
+  "largeMobMaxScale": 2.0,
+  "invisibleMinSeconds": 20,
+  "invisibleMaxSeconds": 40,
+  "invisibleSeconds": 2,
+  "beneficialWeight": 1.0,
+  "harmfulWeight": 1.0,
+  "mixedWeight": 1.0,
+  "severeEffectChance": 0.1,
+  "potionOptionWeight": 1.0,
+  "lifestealOptionWeight": 1.0,
+  "lifestealRatio": 0.03,
+  "lifestealCap": 1.0,
+  "lifestealCooldownTicks": 20,
+  "ranges": {
+    "damage": [
+      0.05,
+      0.2
+    ],
+    "speed": [
+      0.05,
+      0.2
+    ],
+    "mining": [
+      0.05,
+      0.2
+    ],
+    "draw": [
+      0.05,
+      0.2
+    ],
+    "armor": [
+      0.05,
+      0.2
+    ],
+    "toughness": [
+      0.05,
+      0.2
+    ],
+    "water_mining": [
+      0.05,
+      0.2
+    ],
+    "water_move": [
+      0.05,
+      0.2
+    ],
+    "durability": [
+      0.1,
+      0.3
+    ],
+    "reach": [
+      0.25,
+      0.5
+    ],
+    "block_reach": [
+      0.25,
+      0.5
+    ],
+    "movement": [
+      0.02,
+      0.05
+    ],
+    "health": [
+      1.0,
+      2.0
+    ],
+    "knockback": [
+      0.02,
+      0.08
+    ],
+    "safe_fall": [
+      1.0,
+      2.0
+    ],
+    "fall_damage": [
+      0.05,
+      0.2
+    ]
+  },
+  "optionWeights": {
+    "damage": 1.0,
+    "speed": 1.0,
+    "mining": 1.0,
+    "draw": 1.0,
+    "armor": 1.0,
+    "toughness": 1.0,
+    "water_mining": 1.0,
+    "water_move": 1.0,
+    "durability": 1.0,
+    "reach": 1.0,
+    "block_reach": 1.0,
+    "movement": 1.0,
+    "health": 1.0,
+    "knockback": 1.0,
+    "safe_fall": 1.0,
+    "fall_damage": 1.0
+  },
+  "mobEffectWeights": {
+    "speed": 1.0,
+    "resistance": 1.0,
+    "jump": 1.0,
+    "strength": 1.0,
+    "fire_resistance": 1.0,
+    "invisibility": 1.0
+  },
+  "extraMobTypes": [],
+  "excludedMobTypes": [],
+  "extraItems": [],
+  "excludedItems": []
+}

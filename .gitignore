@@ -1,0 +1,10 @@
+.cache/
+.gradle/
+.tools/
+.fabric/
+build/
+dist/
+run/
+*.log
+logs/
+crash-reports/

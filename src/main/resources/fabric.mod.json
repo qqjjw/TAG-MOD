@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "tagmod",
+  "version": "0.1.2",
+  "name": "변덕의 장비와 몬스터",
+  "description": "한국어 랜덤 장비 옵션과 바닐라 몬스터 강화. Minecraft 26.3 / LAN.",
+  "environment": "*",
+  "entrypoints": { "main": ["dev.tagmod.TagMod"] },
+  "mixins": ["tagmod.mixins.json"],
+  "license": "MIT",
+  "depends": { "fabricloader": ">=0.19.5", "minecraft": "26.3", "java": ">=25", "fabric-api": "*" }
+}
