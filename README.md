@@ -79,11 +79,46 @@ Minecraft Java 26.3의 기본 플레이에 랜덤 몬스터 강화와 한국어 
 - [설정 항목과 변경 예시](docs/CONFIG.md): 확률·수치·대상 목록 조정.
 - [개발 안내](docs/DEVELOPMENT.md): 소스 구성, 빌드, 패키징, 선택적 검사, Git 관리.
 
-프로젝트 루트에서 **컴파일만** 하는 명령입니다. 실제 실행·검사는 사용자와 범위를 합의한 뒤 진행합니다.
+## 소스에서 빌드하기
+
+Windows PowerShell과 **JDK 25**가 필요합니다. Java 실행 환경만 있는 JRE가 아니라 `java`, `javac`, `jar`가 포함된 JDK를 설치하고 세 명령을 PATH에 등록하세요.
+
+이 프로젝트는 Gradle 대신 PowerShell 스크립트로 직접 컴파일합니다. 설치된 공식 게임 파일을 사용하므로 다음 준비가 필요합니다.
+
+1. Minecraft 런처에서 **26.3**을 한 번 실행해 게임 JAR와 라이브러리를 준비합니다.
+2. **Fabric Loader 0.19.5 / Minecraft 26.3** 프로필을 설치합니다. 현재 빌드 스크립트는 이 정확한 프로필 경로를 사용합니다.
+3. 빌드에 사용할 `.minecraft` 폴더의 `mods`에 **26.3용 Fabric API JAR**를 넣습니다. 파일 이름은 `fabric-api-*+26.3.jar` 형식이어야 합니다.
+4. 저장소를 내려받고 프로젝트 루트에서 빌드 명령을 실행합니다.
 
 ```powershell
+git clone git@github.com:qqjjw/TAG-MOD.git
+cd TAG-MOD
+
+# 컴파일과 JAR 생성만 실행합니다. 테스트·게임 실행은 하지 않습니다.
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\build.ps1
 ```
+
+기본 게임 파일 경로는 `%APPDATA%\.minecraft`입니다. 다른 위치에 설치했다면 다음과 같이 지정합니다.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\build.ps1 -MinecraftDirectory 'D:\Minecraft'
+```
+
+지정한 폴더에는 `versions/26.3`, `versions/fabric-loader-0.19.5-26.3`, `libraries`, Fabric API가 있는 `mods`가 필요합니다. 별도의 플레이 프로필 폴더에는 이러한 공통 게임 파일이 없을 수 있으므로 구분하세요.
+
+### 빌드 결과와 설치용 ZIP
+
+현재 버전의 빌드 결과는 **`build/libs/tagmod-0.1.2.jar`**입니다. 파일명의 버전은 `src/main/resources/fabric.mod.json`에서 읽습니다.
+
+설정과 문서를 포함한 설치용 ZIP을 만들려면 JAR 빌드 후 아래 명령을 실행합니다.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\package.ps1
+```
+
+결과는 `dist/TagMod-0.1.2.zip`과 `dist/TagMod-0.1.2/`에 생성됩니다. 패키징은 기존 JAR를 사용하며 재컴파일·테스트하지 않습니다. 게임에 적용하려면 [설치와 LAN 플레이](#설치와-lan-플레이) 순서대로 새 JAR와 설정을 직접 복사하세요.
+
+`build`, `dist`, 캐시는 Git에 포함하지 않으며 빌드·패키징 시 다시 생성됩니다. 빌드는 게임 파일이나 의존성을 다운로드하지 않습니다. 테스트는 기본 빌드에 포함되지 않으며, 추가 검사·컴파일·테스트 실행은 사용자와 범위를 합의한 뒤 진행합니다. 검사 옵션과 소스 수정 지점은 [개발 안내](docs/DEVELOPMENT.md)에 정리되어 있습니다.
 
 ## 플레이 중 확인과 문제 신고
 
